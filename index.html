@@ -1,10 +1,137 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Colton's New Website</title>
-    </head>
-    <body>
-        <h1>Welcome to Colton's New Website!</h1>
-        <p>This is the home page. More content coming soon!</p>
-    </body>
-</html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NextRun</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Montserrat:ital,wght@1,700;1,800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0A0A;--s:#141414;--s2:#1d1d1d;--bd:#2b2b2b;--tx:#fff;--mu:#9CA3AF;--or:#FF6A00;--dor:#894D10;--cy:#22D3EE;--gl:0 0 18px rgba(255,106,0,.45);--hd:"Montserrat","Arial Black",sans-serif;--bo:"Inter",system-ui,sans-serif;--mo:"JetBrains Mono",ui-monospace,monospace;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme=light]{--bg:#F4F3F0;--s:#fff;--s2:#ECEAE6;--bd:#dcd9d2;--tx:#0A0A0A;--mu:#5b6270;--cy:#0a2a5e;--gl:0 6px 18px rgba(255,106,0,.3)}
+:root[data-theme=light] .cardface{color:#fff}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}body{background:#000;color:var(--tx);font-family:var(--bo);display:flex;justify-content:center;align-items:center;overflow:hidden}
+#app{position:relative;width:100%;max-width:410px;height:100%;max-height:840px;background:var(--bg);display:flex;flex-direction:column;overflow:hidden;transition:background .3s}
+@media(min-width:520px){#app{border-radius:38px;border:2px solid var(--bd);box-shadow:0 0 60px rgba(255,106,0,.18)}}
+.scr{flex:1;overflow-y:auto;padding:18px 16px 24px;scrollbar-width:none}.scr::-webkit-scrollbar{display:none}
+h1,h2,h3{font-family:var(--hd);font-style:italic;font-weight:800;letter-spacing:-.01em}
+h1{font-size:28px;line-height:1.1}h2{font-size:20px}h3{font-size:15px}
+.mo{font-family:var(--mo);font-size:11px;color:var(--mu)}.mu{color:var(--mu);font-size:13px;line-height:1.45}
+.or{color:var(--or)}
+.card{background:var(--s);border:1px solid var(--bd);border-radius:16px;padding:14px;margin-bottom:12px;transition:background .3s,border-color .3s}
+.btn{display:block;width:100%;padding:14px;border-radius:14px;border:1px solid var(--bd);background:var(--s);color:var(--tx);font:600 15px var(--bo);cursor:pointer;margin-bottom:10px;transition:transform .15s,box-shadow .2s}
+.btn:active{transform:scale(.97)}.btn.p{background:var(--or);border-color:var(--or);color:#fff;box-shadow:var(--gl)}.btn:disabled{opacity:.4;box-shadow:none}
+.btn:focus-visible,.seg button:focus-visible,input:focus-visible{outline:2px solid var(--cy);outline-offset:2px}
+.row{display:flex;align-items:center;gap:10px}.sp{justify-content:space-between}
+.seg{display:flex;gap:6px;background:var(--s2);padding:4px;border-radius:12px;margin-bottom:12px}
+.seg button{flex:1;padding:9px 4px;border:0;border-radius:9px;background:none;color:var(--mu);font:600 12px var(--bo);cursor:pointer}
+.seg button.on{background:var(--or);color:#fff;box-shadow:var(--gl)}
+.hero{background:linear-gradient(135deg,#ff7a1a,#e85a00 60%,#b94400);border-radius:20px;padding:18px;color:#fff;box-shadow:var(--gl);position:relative;overflow:hidden;margin-bottom:12px}
+.hero b{font:italic 800 54px var(--hd);letter-spacing:-.03em}
+.ring{position:absolute;right:16px;top:16px;width:74px;height:74px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.st{background:var(--s2);border-radius:12px;padding:10px;text-align:center}.st b{display:block;font:italic 800 22px var(--hd)}.st span{font-size:11px;color:var(--mu)}
+.bar{height:8px;background:var(--s2);border-radius:8px;overflow:hidden;margin-top:8px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--dor),var(--or));border-radius:8px;box-shadow:var(--gl);animation:gr 1.2s ease-out}
+@keyframes gr{from{width:0!important}}
+.nav{display:flex;align-items:center;justify-content:space-around;padding:8px 6px 12px;border-top:1px solid var(--bd);background:var(--s)}
+.nav button{background:none;border:0;color:var(--mu);font:500 10px var(--bo);display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;min-width:52px}
+.nav button.on{color:var(--or)}.nav svg{width:22px;height:22px}
+.nav .cam{width:58px;height:58px;border-radius:50%;background:var(--or);color:#fff;margin-top:-28px;box-shadow:0 0 0 5px var(--bg),var(--gl);animation:pu 2.4s infinite;justify-content:center}
+@keyframes pu{50%{box-shadow:0 0 0 5px var(--bg),0 0 30px rgba(255,106,0,.8)}}
+.dots{display:flex;gap:6px;justify-content:center;margin:14px 0}.dots i{width:7px;height:7px;border-radius:7px;background:var(--bd)}.dots i.on{background:var(--or);width:22px}
+.in{width:100%;padding:13px;border-radius:12px;border:1px solid var(--bd);background:var(--s2);color:var(--tx);font:500 15px var(--bo);margin-bottom:10px}
+.scan{position:relative;width:200px;height:240px;margin:20px auto;border:2px solid var(--or);border-radius:22px;overflow:hidden;background:radial-gradient(circle at 50% 40%,#2a1505,#000);box-shadow:var(--gl)}
+.scan:after{content:"";position:absolute;left:0;right:0;height:3px;background:var(--cy);box-shadow:0 0 16px var(--cy);animation:sw 2s ease-in-out infinite alternate}
+@keyframes sw{from{top:0}to{top:100%}}
+.map{height:170px;border-radius:16px;margin:16px 0;background:repeating-linear-gradient(0deg,transparent 0 24px,var(--bd) 24px 25px),repeating-linear-gradient(90deg,transparent 0 24px,var(--bd) 24px 25px),var(--s2);display:grid;place-items:center;font-size:34px}
+.tilt{perspective:900px;width:210px;height:290px;margin:4px auto 14px;touch-action:none}
+.flip{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.8,.2,1)}.flip.f{transform:rotateY(180deg)}
+.cardface{position:absolute;inset:0;border-radius:20px;border:3px solid var(--bc);padding:14px;backface-visibility:hidden;color:#fff;background:radial-gradient(circle at 50% 30%,var(--bg2),#0a0a0a 70%);box-shadow:0 0 28px var(--bc),inset 0 0 30px rgba(0,0,0,.6);overflow:hidden}
+.cardface.b{transform:rotateY(180deg)}
+.cardface:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.14) 50%,transparent 65%);background-size:250% 100%;animation:sh 4s infinite}
+@keyframes sh{from{background-position:150% 0}to{background-position:-50% 0}}
+.car{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.chip{flex:none;padding:10px 14px;border-radius:12px;border:1px solid var(--bd);background:var(--s);color:var(--tx);font:600 12px var(--bo);cursor:pointer}.chip.on{border-color:var(--or);box-shadow:var(--gl)}
+.badge{font:600 10px var(--mo);padding:3px 8px;border-radius:20px;background:rgba(255,106,0,.15);color:var(--or)}
+.dot{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px #22c55e}.dot.o{background:var(--or);box-shadow:0 0 8px var(--or)}.dot.x{background:var(--mu);box-shadow:none}
+.av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--or),var(--dor));display:grid;place-items:center;font:800 14px var(--hd);color:#fff;flex:none}
+.cam-v{height:210px;border-radius:16px;position:relative;overflow:hidden;background:linear-gradient(#1a1008,#3a1f0a);margin-bottom:12px;border:1px solid var(--bd)}
+.rec{width:70px;height:70px;border-radius:50%;border:4px solid #fff;background:none;margin:8px auto;display:grid;place-items:center;cursor:pointer}.rec i{width:48px;height:48px;border-radius:50%;background:#ef4444;transition:all .25s}.rec.on i{width:26px;height:26px;border-radius:7px;animation:pu2 1s infinite}
+@keyframes pu2{50%{opacity:.5}}
+.mod{position:absolute;inset:0;background:rgba(0,0,0,.7);display:grid;place-items:center;padding:24px;z-index:9}.mod div{background:var(--s);border:1px solid #ef4444;border-radius:18px;padding:20px}
+.bub{max-width:78%;padding:9px 12px;border-radius:14px;font-size:13px;margin-bottom:8px;background:var(--s2)}.bub.me{background:var(--or);color:#fff;margin-left:auto}
+.tg{width:46px;height:26px;border-radius:26px;background:var(--s2);border:1px solid var(--bd);position:relative;cursor:pointer;flex:none}.tg:after{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--mu);transition:all .25s}.tg.on{background:var(--or)}.tg.on:after{left:22px;background:#fff}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><div id="app"></div>
+<script>
+const $=s=>document.querySelector(s);
+const S={v:'o0',theme:'dark',handle:'',scan:false,loc:false,slide:0,tab:'Leaderboard',mode:'Casual Pickup',rec:false,flip:false,border:'#FF6A00',title:'Rookie',bell:2,priv:'Club',queue:false,del:false,ft:'Active',
+posts:[['PlayerOne','Game today was crazy! 🔥'],['Hooper23','Who is in for Saturday 5v5?']],chat:[['t','You up for a run tonight?']],
+roster:{PlayerOne:'A',Hooper23:'B',BallsLife:'',CourtVision:'',BucketsOnly:''}};
+const I={home:'<path d="M3 11l9-8 9 8v10H3z"/>',club:'<path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/>',cam:'<path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/>',fr:'<circle cx="9" cy="8" r="3"/><path d="M3 20c0-4 3-6 6-6s6 2 6 6"/><circle cx="17" cy="9" r="2.5"/>',me:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 4-7 8-7s8 2 8 7"/>',gear:'<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>',bell:'<path d="M6 16v-5a6 6 0 0112 0v5l2 2H4z"/><path d="M10 21h4"/>'};
+const ic=(n,w)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ${w?`width="${w}" height="${w}"`:''}>${I[n]}</svg>`;
+const logo=`<span style="font:italic 800 24px var(--hd)">Next<span style="color:var(--or)">Run</span></span>`;
+const dots=n=>`<div class="dots">${[0,1,2,3,4].map(i=>`<i class="${i==n?'on':''}"></i>`).join('')}</div>`;
+const seg=(arr,cur,a)=>`<div class="seg">${arr.map(x=>`<button class="${x==cur?'on':''}" data-a="${a}" data-v="${x}">${x}</button>`).join('')}</div>`;
+const COS=[['#FF6A00','Orange'],['#22D3EE','Cyan'],['#FACC15','Gold'],['#A855F7','Violet']],TIT=['Rookie','Sniper','Floor General','Glass Cleaner'];
+const V={
+o0:()=>`<div style="text-align:center;padding-top:60px">${logo}<h1 style="margin:26px 0 6px">Welcome back</h1><p class="mu" style="margin-bottom:26px">Sign in to keep your stats and card.</p>
+<button class="btn p" data-a="go" data-v="o1">Continue with email</button><button class="btn" data-a="go" data-v="o1">Continue with Google</button><button class="btn" data-a="go" data-v="o1">Continue with Apple</button><p class="mo" style="margin-top:14px">Track. Improve. Compete. Together.</p></div>${dots(0)}`,
+o1:()=>`<h1 style="margin-top:30px">Create your player handle</h1><p class="mu" style="margin:8px 0 18px">This is permanent. You can't change it later.</p>
+<div class="row" style="position:relative"><input id="hs" class="in" placeholder="@playername" maxlength="16" value="${S.handle}" autocomplete="off"><span id="ck" class="or" style="position:absolute;right:14px;top:12px"></span></div><p id="hm" class="mo" style="margin-bottom:14px">3–16 characters: letters, numbers, underscore.</p>
+<button id="hb" class="btn p" data-a="go" data-v="o2" disabled>Continue</button>${dots(1)}`,
+o2:()=>`<h1 style="margin-top:30px;text-align:center">Face scan</h1><p class="mu" style="text-align:center">Center your face so teammates can be tagged in footage.</p><div class="scan"><svg viewBox="0 0 100 120" style="width:100%;height:100%;opacity:.5" fill="none" stroke="#FF6A00" stroke-width=".8"><ellipse cx="50" cy="55" rx="27" ry="36"/><path d="M50 19v72M23 55h54M30 35q20 8 40 0M30 75q20-8 40 0"/></svg></div>
+<div class="bar"><i style="width:${S.scan?100:60}%"></i></div><p class="mo" style="text-align:center;margin:10px 0 18px">${S.scan?'Face saved':'Scanning…'}</p><button class="btn p" data-a="go" data-v="o3" ${S.scan?'':'disabled'}>Continue</button>${dots(2)}`,
+o3:()=>`<h1 style="margin-top:30px">Find local clubs</h1><p class="mu">Allow location to discover campus clubs and pickup groups near you.</p>
+${S.loc?`<div class="card" style="margin-top:14px"><h3>Near you</h3>${['UT Dallas Hoops · 2.4 mi','SMU Club Ball · 6.1 mi','Dallas Pickup Crew · 3.3 mi'].map(c=>`<div class="row sp" style="padding:10px 0;border-top:1px solid var(--bd)"><span style="font-size:14px">${c}</span><span class="badge">JOIN</span></div>`).join('')}</div><button class="btn p" data-a="go" data-v="o4">Continue</button>`:`<div class="map">📍</div><button class="btn p" data-a="loc">Allow location access</button><button class="btn" data-a="go" data-v="o4">Not now</button>`}${dots(3)}`,
+o4:()=>{const T=[['Stand back','Keep your phone steady at half-court height so the full court is visible.'],['Frame the lines','Line the neon guides up with the baselines and sidelines.'],['Hit record','Tap the red button. NextRun handles the tracking.']],t=T[S.slide];
+return `<h1 style="margin-top:20px">How to record</h1><div id="sw" class="card" style="margin-top:18px;text-align:center;padding:26px 16px"><svg viewBox="0 0 120 70" style="width:200px" fill="none" stroke="#FF6A00" stroke-width="1.5"><rect x="4" y="4" width="112" height="62"/><path d="M60 4v62"/><circle cx="60" cy="35" r="10"/><rect x="4" y="22" width="22" height="26"/><rect x="94" y="22" width="22" height="26"/></svg><h2 style="margin:16px 0 6px">${t[0]}</h2><p class="mu">${t[1]}</p><p class="mo" style="margin-top:12px">Swipe or tap to continue</p></div>
+<div class="dots">${[0,1,2].map(i=>`<i class="${i==S.slide?'on':''}"></i>`).join('')}</div>
+<button class="btn p" data-a="${S.slide<2?'sl':'go'}" data-v="${S.slide<2?1:'home'}">${S.slide<2?'Next':'Got it'}</button>`},
+home:()=>`<div class="row sp">${logo}<button class="btn" style="width:40px;padding:8px;margin:0;position:relative" data-a="bell">${ic('bell',22)}${S.bell?`<span class="badge" style="position:absolute;top:-6px;right:-6px;background:var(--or);color:#fff">${S.bell}</span>`:''}</button></div>
+<p class="mo" style="margin:18px 0 2px">WELCOME BACK</p><h1>${S.handle?S.handle:'Jordan'}</h1><p class="mu" style="margin-bottom:14px">Keep pushing.</p>
+<div class="hero"><svg class="ring" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="3"/><circle cx="18" cy="18" r="15" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="68 100" stroke-linecap="round" transform="rotate(-90 18 18)"/></svg><b>72%</b><div class="mo" style="color:#fff">SHOOTING EFFICIENCY</div><div style="margin-top:6px;font-size:13px">▲ +4.2% vs last week</div></div>
+<div class="card"><div class="row sp"><h3>Latest game</h3><span class="mo">Apr 26 · Pickup</span></div><div class="g3" style="margin-top:10px">${[['18','PTS'],['6','AST'],['4','REB']].map(x=>`<div class="st"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div></div>
+<div class="card"><h3>Challenges</h3>${[['Make 10 3PTs this week',60],['Log 3 sessions',33],['5 assists in one game',100]].map(c=>`<div style="margin-top:12px;font-size:13px" class="row sp"><span>${c[0]}</span><span class="mo">${c[1]}%</span></div><div class="bar"><i style="width:${c[1]}%"></i></div>`).join('')}</div>`,
+club:()=>{const L=[['PlayerOne',248],['Hooper23',231],['BallsLife',219],['CourtVision',201],['BucketsOnly',190]];
+return `<div class="hero" style="padding:20px"><h2>Westwood Ballers</h2><p style="font-size:13px;margin-top:4px">12 members · Dallas, TX</p></div>${seg(['Leaderboard','Activity','Tournaments'],S.tab,'tab')}
+${S.tab=='Leaderboard'?`<div class="card"><h3>Top 5 this week</h3>${L.map((p,i)=>`<div class="row" style="padding:10px 0;border-top:1px solid var(--bd)"><b class="or" style="width:18px">${i+1}</b><div class="av">${p[0][0]}</div><span style="flex:1;font-size:14px">${p[0]}</span><b class="mo" style="color:var(--tx)">${p[1]}</b></div>`).join('')}</div>`:''}
+${S.tab=='Tournaments'?`<div class="card"><h3>Summer Showdown</h3><p class="mu" style="margin:6px 0 10px">8 teams · single elimination</p>${['Quarterfinals — Sat 4 PM','Semifinals — Sun 2 PM','Finals — Sun 6 PM'].map(x=>`<div class="st" style="margin-bottom:6px;text-align:left">${x}</div>`).join('')}</div>`:''}
+${S.tab=='Activity'||S.tab=='Leaderboard'?`<div class="card"><h3>Club feed</h3>${S.posts.map(p=>`<div class="row" style="margin-top:12px;align-items:flex-start"><div class="av">${p[0][0]}</div><div><b style="font-size:13px">${p[0]}</b><p class="mu">${p[1]}</p></div></div>`).join('')}<div class="row" style="margin-top:14px"><input id="cm" class="in" style="margin:0" placeholder="Write a comment"><button class="btn p" style="width:80px;margin:0" data-a="post">Post</button></div></div>`:''}`},
+cam:()=>{const P=Object.keys(S.roster);
+return `<h2 style="margin-bottom:12px">Scouting camera</h2>${seg(['Casual Pickup','Tournament Game','Solo Drills'],S.mode,'mode')}
+<div class="cam-v"><svg viewBox="0 0 200 110" style="width:100%;height:100%" fill="none" stroke="#FF6A00" stroke-width="1.4" stroke-dasharray="4 3"><path d="M10 100L40 20H160L190 100Z"/><path d="M60 20L45 100M140 20L155 100M22 60H178"/><ellipse cx="100" cy="60" rx="26" ry="9"/></svg><span class="badge" style="position:absolute;top:10px;right:10px;background:#000;color:${S.rec?'#ef4444':'#fff'}">${S.rec?'● REC 1080p':'READY 1080p'}</span></div>
+<div class="card"><h3>Roster</h3>${P.map(p=>`<div class="row sp" style="padding:8px 0;border-top:1px solid var(--bd)"><span style="font-size:14px">${p}</span><button class="chip ${S.roster[p]?'on':''}" style="padding:6px 14px" data-a="tm" data-v="${p}">${S.roster[p]?'Team '+S.roster[p]:'Unassigned'}</button></div>`).join('')}</div>
+<button class="rec ${S.rec?'on':''}" data-a="rec" aria-label="Record"><i></i></button><p class="mo" style="text-align:center">${S.rec?'Recording '+S.mode+'… tap to stop':'Tap to start session'}</p>`},
+friends:()=>{const F=[['PlayerOne','In a game · 2h',''],['Hooper23','At practice · 34 min','o'],['BallsLife','Offline','x'],['CourtVision','In club · 1h','']];
+return `<h2 style="margin-bottom:12px">The Crew</h2><input id="fs" class="in" placeholder="Search friends, clubs, handles">${seg(['Active','Messages','Rivalry'],S.ft,'ft')}
+${S.ft=='Active'?`<div id="fl">${F.map(f=>`<div class="card row" data-n="${f[0].toLowerCase()}"><div class="av">${f[0][0]}</div><div style="flex:1"><b style="font-size:14px">${f[0]}</b><div class="mo">${f[1]}</div></div><span class="dot ${f[2]}"></span></div>`).join('')}</div>`:''}
+${S.ft=='Messages'?`<div class="card">${S.chat.map(m=>`<div class="bub ${m[0]=='me'?'me':''}">${m[1]}</div>`).join('')}<div class="row"><input id="ms" class="in" style="margin:0" placeholder="Message Hooper23"><button class="btn p" style="width:70px;margin:0" data-a="send">Send</button></div></div>`:''}
+${S.ft=='Rivalry'?`<div class="card" style="text-align:center"><p class="mo">HEAD TO HEAD</p><div class="row sp" style="margin:12px 0"><div><div class="av" style="margin:auto">Y</div>You</div><b style="font:italic 800 38px var(--hd)"><span class="or">7</span> – 4</b><div><div class="av" style="margin:auto;background:var(--s2)">H</div>Hooper23</div></div><div class="bar"><i style="width:64%"></i></div><p class="mu" style="margin-top:10px">You lead by 3. Next matchup: Saturday.</p></div>`:''}`},
+me:()=>`<div class="row sp"><h2>Player card</h2><button class="btn" style="width:40px;padding:8px;margin:0" data-a="go" data-v="set" aria-label="Settings">${ic('gear',22)}</button></div>
+<div class="tilt" id="tl" style="margin-top:14px"><div class="flip ${S.flip?'f':''}" id="fp" style="--bc:${S.border}"><div class="cardface" style="--bc:${S.border};--bg2:${S.border}55"><div class="row sp"><b style="font:italic 800 38px var(--hd)">92</b><span class="mo" style="color:#fff">PG</span></div><div style="height:118px;display:grid;place-items:center"><svg viewBox="0 0 60 70" width="90" fill="${S.border}" opacity=".9"><circle cx="30" cy="16" r="10"/><path d="M8 68c0-22 10-30 22-30s22 8 22 30z"/></svg></div><b style="font:italic 800 20px var(--hd)">${S.handle||'@playerone'}</b><div class="mo" style="color:${S.border}">${S.title} · #24</div></div>
+<div class="cardface b" style="--bc:${S.border};--bg2:${S.border}33"><h3>Career</h3><div class="g2" style="margin-top:12px">${[['62.5%','FG'],['41.2%','3PT'],['78.4%','FT'],['18.6','PPG'],['6.2','APG'],['5.1','RPG']].map(x=>`<div class="st" style="background:rgba(255,255,255,.08)"><b style="font-size:18px">${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div></div></div></div>
+<button class="btn" data-a="flipc">Flip card</button><h3 style="margin:6px 0 8px">Border glow</h3><div class="car">${COS.map(c=>`<button class="chip ${S.border==c[0]?'on':''}" data-a="bd" data-v="${c[0]}"><span style="color:${c[0]}">●</span> ${c[1]}</button>`).join('')}</div>
+<h3 style="margin:10px 0 8px">Title</h3><div class="car">${TIT.map(t=>`<button class="chip ${S.title==t?'on':''}" data-a="ti" data-v="${t}">${t}</button>`).join('')}</div>
+<h3 style="margin:14px 0 8px">Recent activity</h3>${[['Apr 26 · Pickup','18 pts · 6 ast'],['Apr 22 · Tournament','24 pts · 4 ast'],['Apr 19 · Solo drills','82% FT'],['Apr 15 · Pickup','12 pts · 9 ast']].map(a=>`<div class="card row sp" style="padding:11px 14px;margin-bottom:8px"><span style="font-size:13px">${a[0]}</span><span class="mo">${a[1]}</span></div>`).join('')}`,
+set:()=>`<div class="row" style="margin-bottom:14px"><button class="btn" style="width:40px;padding:8px;margin:0" data-a="go" data-v="me">‹</button><h2>Settings</h2></div>
+<div class="card row sp"><div><b style="font-size:14px">Light mode</b><div class="mo">Switch app theme</div></div><div class="tg ${S.theme=='light'?'on':''}" data-a="th" role="switch" tabindex="0"></div></div>
+<div class="card"><h3>Privacy</h3><p class="mu" style="margin:4px 0 10px">Who can see your profile and stats.</p>${seg(['Public','Club','Private'],S.priv,'pv')}</div>
+<div class="card"><div class="row sp" data-a="q" style="cursor:pointer"><h3>Processing queue</h3><span class="badge">${S.queue?'HIDE':'2 UPLOADING'}</span></div>${S.queue?`${['Sat_run_full.mp4 — 64%','Drills_Tue.mp4 — 18%'].map((x,i)=>`<div class="mo" style="margin-top:12px">${x}</div><div class="bar"><i style="width:${i?18:64}%"></i></div>`).join('')}`:''}</div>
+<div class="card"><h3>Legal</h3><p class="or" style="margin-top:8px;font-size:14px">Terms of Service</p><p class="or" style="margin-top:6px;font-size:14px">Privacy Policy</p></div>
+<button class="btn" style="color:#ef4444;border-color:#ef4444" data-a="del">Delete account</button>`
+};
+const nav=()=>`<div class="nav">${[['home','Home','home'],['club','Club Hub','club'],['cam','','cam'],['fr','Friends','friends'],['me','Profile','me']].map(n=>`<button class="${n[2]=='cam'?'cam':''} ${S.v==n[2]||(n[2]=='me'&&S.v=='set')?'on':''}" data-a="go" data-v="${n[2]}" aria-label="${n[1]||'Record'}">${ic(n[0])}${n[1]}</button>`).join('')}</div>`;
+function R(){document.documentElement.dataset.theme=S.theme;$('#app').innerHTML=`<div class="scr">${V[S.v]()}</div>${S.v[0]=='o'?'':nav()}${S.del?`<div class="mod"><div><h2>Delete account?</h2><p class="mu" style="margin:8px 0 16px">This permanently removes your card, stats, and uploaded footage. This can't be undone.</p><button class="btn" style="background:#ef4444;color:#fff;border:0" data-a="del2">Delete permanently</button><button class="btn" data-a="del0">Keep account</button></div></div>`:''}`;if(S.v=='o2'&&!S.scan)setTimeout(()=>{if(S.v=='o2'){S.scan=true;R()}},2800)}
+const A={go:v=>{S.v=v;S.slide=0;R()},loc:()=>{S.loc=true;R()},sl:()=>{S.slide++;R()},th:()=>{S.theme=S.theme=='dark'?'light':'dark';R()},tab:v=>{S.tab=v;R()},mode:v=>{S.mode=v;R()},ft:v=>{S.ft=v;R()},pv:v=>{S.priv=v;R()},
+bell:()=>{S.bell=0;R()},rec:()=>{S.rec=!S.rec;R()},flipc:()=>{S.flip=!S.flip;R()},bd:v=>{S.border=v;R()},ti:v=>{S.title=v;R()},q:()=>{S.queue=!S.queue;R()},del:()=>{S.del=true;R()},del0:()=>{S.del=false;R()},del2:()=>{S.del=false;S.handle='';S.scan=false;S.loc=false;S.v='o0';R()},
+tm:v=>{S.roster[v]={'':'A',A:'B',B:''}[S.roster[v]];R()},
+post:()=>{const t=$('#cm').value.trim();if(t){S.posts.unshift([S.handle||'You',t]);R()}},send:()=>{const t=$('#ms').value.trim();if(t){S.chat.push(['me',t]);R()}}};
+document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(t)A[t.dataset.a](t.dataset.v)});
+document.addEventListener('keydown',e=>{if(e.key=='Enter'&&e.target.dataset.a=='th')A.th()});
+document.addEventListener('input',e=>{const t=e.target;if(t.id=='hs'){const ok=/^[a-z0-9_]{3,16}$/i.test(t.value.replace(/^@/,''));S.handle=ok?'@'+t.value.replace(/^@/,''):'';$('#ck').textContent=ok?'✓':'';$('#hb').disabled=!ok;$('#hm').textContent=ok?'Looks good. This handle is yours for good.':'3–16 characters: letters, numbers, underscore.'}
+if(t.id=='fs')document.querySelectorAll('#fl [data-n]').forEach(c=>c.style.display=c.dataset.n.includes(t.value.toLowerCase())?'':'none')});
+let x0=0;document.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',e=>{if(S.v=='o4'&&e.target.closest('#sw')){const d=e.changedTouches[0].clientX-x0;if(d<-40&&S.slide<2){S.slide++;R()}else if(d>40&&S.slide>0){S.slide--;R()}}});
+document.addEventListener('pointermove',e=>{const w=e.target.closest('#tl');if(!w)return;const r=w.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;w.style.transform=`rotateY(${x*28}deg) rotateX(${-y*28}deg)`});
+document.addEventListener('pointerout',e=>{const w=$('#tl');if(w&&!w.contains(e.relatedTarget))w.style.transform=''});
+R();
+</script></body></html>
